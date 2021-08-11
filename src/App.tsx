@@ -1,24 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {FC} from 'react';
 import './App.css';
+import TodosList from "./components/TodosList";
+import Title from "./components/Title";
 
-function App() {
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="ToDo-App pt-5 bg-info text-center">
+      <div className="container">
+          <Title text={'Todo app'} />
+          <TodosList />
+      </div>
     </div>
   );
 }

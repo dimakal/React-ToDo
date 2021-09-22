@@ -35,4 +35,26 @@ app.delete('/remove/:id', (req, res) => {
     res.status(200).json({message: 'Todo was deleted', todos: TODOS})
 })
 
+app.put('/complete/:id', (req, res) => {
+    TODOS.forEach((todo) => {
+        if (todo.id === req.params.id) {
+            todo.completed = !todo.completed
+        }
+    })
+
+    console.log(req.params)
+    res.status(200).json({message: 'Todo was toggled', todos: TODOS})
+})
+
+app.put('/edit/:id', (req, res) => {
+    TODOS.forEach((todo) => {
+        if (todo.id === req.params.id) {
+            todo.text = req.body.text
+        }
+    })
+
+    console.log(req.body.text)
+    res.status(200).json({message: 'Todo was changed', todos: TODOS})
+})
+
 app.listen(port, () => console.log(`Server has been started on port ${port}`))

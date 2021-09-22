@@ -4,7 +4,7 @@ import deleteIcon from '../../assets/icons/trash.svg'
 import editIcon from '../../assets/icons/pencil.svg'
 import confirmIcon from '../../assets/icons/tick.svg'
 import {useDispatch} from "react-redux";
-import {deleteTodo, editTodo, removeTodo, toggleTodo} from "../../redux/actions/todos";
+import {changeTodo, completeTodo, deleteTodo, editTodo, removeTodo, toggleTodo} from "../../redux/actions/todos";
 import {ITodo} from "../../types";
 
 interface ITodoProps {
@@ -29,7 +29,13 @@ const Todo = ({todo}: ITodoProps) => {
 
         if (todoInputEl && todoInputEl.current && !editMode) todoInputEl.current.focus()
 
-        setEditMode((prevState => !prevState))
+    setEditMode((prevState) => {
+        if (prevState) {
+            dispatch(changeTodo(todo.id, todoText))
+        }
+        return !prevState
+    })
+        // setEditMode((prevState => !prevState))
     }
 
     const onDeleteTodo = (): void => {
@@ -38,7 +44,7 @@ const Todo = ({todo}: ITodoProps) => {
 
     const onToggleTodo = (): void => {
         if (editMode) return alert("You can't complete the Todo while editting ")
-        dispatch(toggleTodo(todo.id))
+        dispatch(completeTodo(todo.id))
     }
 
     const onChangeTodoText = (e: ChangeEvent<HTMLInputElement>) => {

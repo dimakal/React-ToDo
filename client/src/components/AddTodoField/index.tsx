@@ -20,11 +20,6 @@ const AddTodoField: FC = () => {
             text: todoText,
             completed: false
         }))
-        // dispatch(addTodo({
-        //     id: todos.length + 1,
-        //     text: todoText,
-        //     completed: false
-        // }))
         setTodoText('')
     }
 
@@ -32,7 +27,7 @@ const AddTodoField: FC = () => {
         if (!todoText) return
 
         if (e.key === 'Enter') {
-            dispatch(addTodo({
+            dispatch(createTodo({
                 id: todos.length + 1,
                 text: todoText,
                 completed: false
@@ -60,7 +55,7 @@ const AddTodoField: FC = () => {
                    value={todoText}
             />
             <button type="button"
-                    className="btn btn-primary rounded-0 outline-"
+                    className="btn btn-primary rounded-0 outline"
                     onClick={onAddTodo}
             >Add</button>
             <button type="button"

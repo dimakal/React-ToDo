@@ -32,7 +32,7 @@ const AddTodoField: FC = () => {
         if (!todoText) return
 
         if (e.key === 'Enter') {
-            dispatch(addTodo({
+            dispatch(createTodo({
                 id: todos.length + 1,
                 text: todoText,
                 completed: false

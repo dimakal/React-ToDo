@@ -6,3 +6,4 @@ const url = 'http://localhost:3001'
 export const fetchTodos = () => axios.get(url)
 export const addTodo = (todo: ITodo) => axios.post(`${url}/create`, todo)
 export const deleteTodo = (id: ITodo['id']) => axios.delete(`${url}/remove/${id}`)
+export const completeTodo = (id: ITodo['id']) => axios.put(`${url}/complete/${id}`)

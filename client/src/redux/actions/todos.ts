@@ -42,3 +42,12 @@ export const removeTodo = (id: ITodo['id']) => async (dispatch: Dispatch) => {
         console.log(err)
     }
 }
+
+export const completeTodo = (id: ITodo['id']) => async (dispatch: Dispatch) => {
+    try {
+        await api.completeTodo(id)
+        
+        dispatch(toggleTodo(id))
+    } catch (err) {
+        console.log(err)}
+}

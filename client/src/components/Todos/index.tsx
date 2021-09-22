@@ -10,7 +10,15 @@ const Todos = ({filteredTodos}: ITodosProps) => {
 
     if (!filteredTodos.length) {
         return (
-            <div style={{fontSize: '24px', padding: '15px 0'}}> Вы еще не создали ни одной задачи :( </div>
+            <div style={
+                {fontSize: '24px',
+                padding: '15px 0',
+                margin: '15px 12px',
+                background: '#ff4d4d',
+                flex: 1,
+                borderRadius: '5px',
+                color: 'white'}
+            }> Вы еще не создали ни одной задачи :( </div>
         )
     }
 

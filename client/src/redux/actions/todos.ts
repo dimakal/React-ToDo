@@ -51,3 +51,12 @@ export const completeTodo = (id: ITodo['id']) => async (dispatch: Dispatch) => {
     } catch (err) {
         console.log(err)}
 }
+
+export const changeTodo = (id: ITodo['id'], newText: ITodo['text']) => async (dispatch: Dispatch) => {
+    try {
+        await api.editTodo(id, newText)
+
+        dispatch(editTodo(id, newText))
+    } catch (err) {
+        console.log(err)}
+}
